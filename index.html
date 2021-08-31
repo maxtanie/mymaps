@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>A simple map</title>
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" />
+     <link rel="stylesheet" href="./css/style.css" />
+</head>
+
+<body>
+    <div class="centered-container cc-shop_index_search_filters flex-info">
+        <!-- <div id="shop_index_search_filters" class="one-col">
+            <div class="all-filters">
+                <div class="filter byshop first">
+                    <div class="content">
+                        <form id="shop_filter_name" action='#' method="get"></form>
+                            <label for="shop_name">Choisir un magasin</label>
+                            <div class="element">
+                            <select name="shop_name" id="shop_name" class="" title="Choisir un magasin" data-no_results_text="Aucun magasin trouvé pour : ">
+                            </select> <button type='submit' id = 'btnmenu1' class="button-medium" onclick = 'window.location.assign(document.getElementById("shop_name").options[document.getElementById("shop_name").selectedIndex].value)'>OK</button>
+                            </div>
+                        </form>
+                    </div>
+                </div> -->
+                <div class="filter">
+                    <div class="content">                       
+                        <label for="shop_name">Saisir une ville ou un code postal</label>
+                        
+                        <input type="text" id="shop_location" value=""/> <button type='submit' id ='shop_location_btn' class="button-medium">OK</button>
+                       
+                    </div>
+                    <div class="msg-error"></div>
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+
+        
+    <div class="grid-shop-index">
+        <div class="flex-info">
+            <div id="map"></div>
+            <div id="box"></div>
+            <div class="grid-content">     
+                <div class="info-panel-title"></div>
+                <div class="info-panel">
+                    <p class="context"></p>
+                    <div class="marker-rich-infos"></div>
+                </div>
+            </div>
+            <div class="controls bottom">
+            <a class="button button--secondary back-button" href="#" ><i class="icon icon_chevron_left"></i> Retour à la carte globale</a>
+        </div>
+    </div>
+      
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
+    <script src="./js/script.js"></script>
+</body>
+</html>
