@@ -15,6 +15,7 @@ body {
 	margin: 0;
 	padding: 0;
 	font-family: "roboto";
+	background-color: transparent !important;
 }
 
 #map {
@@ -22,7 +23,7 @@ body {
 	width: 85%;
 	margin: auto;
 	display: block;
-	background-color: #fff !important;
+	background-color: transparent !important;
 	transform: scale(0.76);
 	font-size: 15px;
 	z-index: 999;
@@ -41,7 +42,7 @@ body {
 	width: 100%;
 	margin: auto;
 	display: block;
-	background-color: #ffffff;
+	background-color: transparent !important;
 }
 
 @keyframes zoom {
@@ -79,7 +80,7 @@ body {
 	padding: 20px 10px;
 	height: 450px;
 	overflow: auto;
-	background-color: #fff;
+	background-color: transparent !important;
 	z-index: 8000;
 	color: #004079;
 }
