@@ -27,9 +27,9 @@ $(() => {
 	const getFullData = [];
 	var shopLocation = "";
 	var fullShopMax = [];
-	let str = []
-	let strNom = []
-	var counts = 0
+	let str = [];
+	let strNom = [];
+	var counts = 0;
 
 	// Counties with the full map
 	var counties = $.ajax({
@@ -73,12 +73,11 @@ $(() => {
 
 		// Add requested external GeoJSON to map
 		let uniqueData = [];
-		
+
 		// get color depending on population density value
 		function getColor(d, points, feature) {
-			
-			points === "Point" ? uniqueData.push(feature) : uniqueData 
-			console.log(... new set(uniqueData))
+			points === "Point" ? uniqueData.push(feature) : uniqueData;
+			console.log(...new set(uniqueData));
 			// var newStr = "";
 			// getFullData.push(feature);
 			// getFullData.map(el => {
@@ -87,12 +86,15 @@ $(() => {
 			// 	}
 			// })
 
-			const changeData = points === "Point" ? getFullData.push(feature) :
-				uniqueData.includes(d) ? "red" : "blue";
+			const changeData =
+				points === "Point"
+					? getFullData.push(feature)
+					: uniqueData.includes(d)
+					? "red"
+					: "blue";
 			return changeData;
-			
 		}
-		
+
 		function style(feature) {
 			const { fill } = feature.properties;
 			const dataRegion = [];
@@ -160,7 +162,11 @@ $(() => {
 			// return getStyles(["Corse"]);
 
 			return {
-				fillColor: getColor(feature.properties.nom, feature.geometry.type, feature.properties.region),
+				fillColor: getColor(
+					feature.properties.nom,
+					feature.geometry.type,
+					feature.properties.region
+				),
 				weight: 3,
 				color: "#fff",
 				fill: "black",
@@ -169,7 +175,6 @@ $(() => {
 				strokeOpacity: 1
 			};
 		}
-
 
 		var geojsonMarkerOptions = {
 			radius: 6,
@@ -182,7 +187,6 @@ $(() => {
 		function highlightFeature(e) {
 			var layer = e.target;
 			L.geojson.resetStyle();
-
 
 			layer.setStyle({
 				weight: 9,
@@ -199,7 +203,6 @@ $(() => {
 		function resetHighlight(e) {
 			L.geojson.resetStyle(e.target);
 		}
-
 
 		function zoomToFeature(e) {
 			map.fitBounds(e.target.getBounds(49));
@@ -226,7 +229,7 @@ $(() => {
 							.html(` <div class="map-item">
 					<a href="${data.url}" class="title">Greatwood ${data.shop} (${data.shopCode})</a>
 					<p class="adress">${data.adress}</p>
-					<a href="${data.url}" target="_blank" class="see-shop">Voir le magasin</a>
+					<a href="${data.url}" target="_blank" class="see-shop">Voir le distributeur</a>
 				  </div>
 				  `)
 					: "";
@@ -252,7 +255,7 @@ $(() => {
 			});
 
 			$(".grid-content .info-panel .context").html(
-				`<h4>${layers.feature.properties.nom} (${y.length} Magasins)</h4>`
+				`<h4>${layers.feature.properties.nom} (${y.length} Distributeurs)</h4>`
 			);
 
 			nums = dataItems;
@@ -282,7 +285,7 @@ $(() => {
 						<div class="map-item">
 						<a href="${url}" class="title">Greatwood ${shop} (${shopCode})</a>
 						<p class="adress">${adress}</p>
-						<a href="${url}" target="_blank" class="see-shop">Voir le magasin</a>
+						<a href="${url}" target="_blank" class="see-shop">Voir le distributeur</a>
 					  </div>
 					  `;
 
@@ -361,7 +364,7 @@ $(() => {
 						console.log("sorry");
 					}
 					layer.on({
-						click: openLayer,
+						click: openLayer
 					});
 					if (feature.geometry.type === "Point") {
 						deptsData.push(feature.properties);
@@ -371,7 +374,6 @@ $(() => {
 						});
 						layer.on("mouseover", function () {
 							layer.openPopup();
-
 						});
 						layer.on("mouseout", function () {
 							layer.closePopup();
@@ -407,7 +409,7 @@ $(() => {
 								<div class="map-item">
 								<a href="${url}" class="title">Greatwood ${shop} (${shopCode})</a>
 								<p class="adress">${adress}</p>
-								<a href="${url}" target="_blank" class="see-shop">Voir le magasin</a>
+								<a href="${url}" target="_blank" class="see-shop">Voir le distributeur</a>
 							  </div>`;
 								$(".grid-content .info-panel .marker-rich-infos").html(output);
 							}
@@ -434,8 +436,8 @@ $(() => {
 									$(".grid-content .info-panel .context").html(
 										`<h4>${feature.properties.region} (${
 											feature.geometry.type === "Point"
-												? `${dataItems.length} Magasins`
-												: `${dataItems.length} Magasin`
+												? `${dataItems.length} Distributeurs`
+												: `${dataItems.length} distributeur`
 										})</h4>`
 									);
 								} else {
@@ -499,11 +501,11 @@ $(() => {
 				// <div class="map-item" title="${feature.properties.nom}">
 				//   <h2 class="title">Greatwood ${shop} (${shopCode})</h2>
 				//   <p>${adress}</p>
-				//   <a href="${url}" target="_blank" class="see-shop">Voir le magasin</a>
+				//   <a href="${url}" target="_blank" class="see-shop">Voir le distributeur</a>
 				// </div>
 				// ` ;
 
-				// $(".grid-content .info-panel-title").html(`<h3>Magasins Greatwood</h3>`)
+				// $(".grid-content .info-panel-title").html(`<h3>Distributeurs Greatwood</h3>`)
 				// // $(".grid-content .info-panel .marker-rich-infos").html(output)
 				$("#shop_name").html(outputShops);
 			}
@@ -555,9 +557,9 @@ $(() => {
 					offset: L.point(30, -5)
 				});
 				layer.on({
-					mouseover : highlightFeature,
+					mouseover: highlightFeature,
 					mouseout: resetHighlight
-				})
+				});
 				layer.on("mouseover", function () {
 					layer.openPopup();
 				});
@@ -601,14 +603,14 @@ $(() => {
 					{ draggable: false }
 				);
 			},
-			onEachFeature: onEachFeature,
+			onEachFeature: onEachFeature
 		}).addTo(map);
 
 		fullShopMax = shopMax;
 
 		function showFullData() {
 			counts += 1;
-			if (shopLocation === "" && counts <2) {
+			if (shopLocation === "" && counts < 2) {
 				return fullShopMax.map((el) => {
 					const shopCodeShort = el.shopCode;
 					let newShop = shopCodeShort.toString();
@@ -617,15 +619,15 @@ $(() => {
 					  <div class="map-item">
 					  <a href="${el.url}" class="title">Greatwood ${el.shop} (${newShop})</a>
 					  <p class="adress">${el.adress}</p>
-					  <a href="${el.url}" target="_blank" class="see-shop">Voir le magasin</a>
+					  <a href="${el.url}" target="_blank" class="see-shop">Voir le distributeur</a>
 					</div>
 					`;
 					$(".grid-content .info-panel .marker-rich-infos").html(showsData);
 					$(".grid-content .info-panel .context").html(
-						`<h4>Magasin Greatwood <br/> <p>France (${fullShopMax.length} Magasins)</p></h4>`
+						`<h4>distributeur Greatwood <br/> <p>France (${fullShopMax.length} Distributeurs)</p></h4>`
 					);
 				});
-			} 
+			}
 		}
 
 		// Output datalist filter and sort
@@ -634,152 +636,155 @@ $(() => {
 			let newShop = shopCodeShort.toString();
 			newShop = newShop.substring(0, 2);
 
-				showsData += `
+			showsData += `
 				  <div class="map-item">
 				  <a href="${el.url}" class="title">Greatwood ${el.shop} (${newShop})</a>
 				  <p class="adress">${el.adress}</p>
-				  <a href="${el.url}" target="_blank" class="see-shop">Voir le magasin</a>
+				  <a href="${el.url}" target="_blank" class="see-shop">Voir le distributeur</a>
 				</div>
 				`;
-				$(".grid-content .info-panel .marker-rich-infos").html(showsData);
-				$(".grid-content .info-panel .context").html(
-					`<h4>Magasin Greatwood <br/> <p>France (${shopMax.length} Magasins)</p></h4>`
-				);
+			$(".grid-content .info-panel .marker-rich-infos").html(showsData);
+			$(".grid-content .info-panel .context").html(
+				`<h4>distributeur Greatwood <br/> <p>France (${shopMax.length} Distributeurs)</p></h4>`
+			);
 		});
 
 		// Output shop by shopcode and shop name onclick
 		$("#shop_location_btn").click(() => {
-		
-			
-				console.log(shopMax)
-		
-				shopMax.filter((datas,index) => {
-					const shopCodeShort = datas.shopCode;
-					shopLocation = $("#shop_location").val();
-					// $(".msg-error").html(shopLocation)
-					let newShop = shopCodeShort.toString().substring(0, 2)
-					str.push(datas.shop);
-					strNom.push(datas.nom)
-					const matched = (s) => {
-						const p = Array.from(s).reduce((a, v, i) => `${a}[^${s.substr(i)}]*?${v}`, '');
-						const re = RegExp(p);
-						
-						return str.filter(v => v.match(re));
-					};
+			console.log(shopMax);
 
-					const matchedNom = (s) => {
-						const p = Array.from(s).reduce((a, v, i) => `${a}[^${s.substr(i)}]*?${v}`, '');
-						const re = RegExp(p);
-						
-						return strNom.filter(v => v.match(re));
-					};
+			shopMax.filter((datas, index) => {
+				const shopCodeShort = datas.shopCode;
+				shopLocation = $("#shop_location").val();
+				// $(".msg-error").html(shopLocation)
+				let newShop = shopCodeShort.toString().substring(0, 2);
+				str.push(datas.shop);
+				strNom.push(datas.nom);
+				const matched = (s) => {
+					const p = Array.from(s).reduce(
+						(a, v, i) => `${a}[^${s.substr(i)}]*?${v}`,
+						""
+					);
+					const re = RegExp(p);
 
-					if (shopLocation === "") {
-						return showFullData();
-					}
-					if (
-						shopLocation
-					) {
-						kyCounties = L.geoJSON(counties.responseJSON, {
-							filter: function (feature, layer) {
-								// if (feature.geometry.type === "Point") {
+					return str.filter((v) => v.match(re));
+				};
 
-								// 	map.eachLayer((layer) => {
-								// 		if (shopLocation.includes(datas.nom)) {
-								// 			var featureShop = feature.properties.shopCode.toString().substring(0, 2);
-								// 			// layer._leaflet_id = parseInt(featureShop)
-											
-								// 			layer.feature.properties.nom == matchedNom(shopLocation).includes(datas.nom) ? layer.setStyle({
-								// 				weight: 9,
-								// 				color: "orange",
-								// 				dashArray: "",
-								// 				fillOpacity: 1
-								// 			}) : ""
+				const matchedNom = (s) => {
+					const p = Array.from(s).reduce(
+						(a, v, i) => `${a}[^${s.substr(i)}]*?${v}`,
+						""
+					);
+					const re = RegExp(p);
 
-								// 			console.log(layer)
-								// 		}
-								// 	});
-								// }
-								if (
-									feature.geometry.type === "Polygon" ||
-									feature.geometry.type === "MultiPolygon"
-								) {
-									map.eachLayer((layer) => {
-										if (typeof layer._latlngs !== "undefined") {
-											layer.feature.properties.nom.includes(shopLocation)
-												? layer.setStyle({
-												fillColor: "#FF7475",
-												fillOpacity: 1
-											})
-												: layer.setStyle({
+					return strNom.filter((v) => v.match(re));
+				};
+
+				if (shopLocation === "") {
+					return showFullData();
+				}
+				if (shopLocation) {
+					kyCounties = L.geoJSON(counties.responseJSON, {
+						filter: function (feature, layer) {
+							// if (feature.geometry.type === "Point") {
+
+							// 	map.eachLayer((layer) => {
+							// 		if (shopLocation.includes(datas.nom)) {
+							// 			var featureShop = feature.properties.shopCode.toString().substring(0, 2);
+							// 			// layer._leaflet_id = parseInt(featureShop)
+
+							// 			layer.feature.properties.nom == matchedNom(shopLocation).includes(datas.nom) ? layer.setStyle({
+							// 				weight: 9,
+							// 				color: "orange",
+							// 				dashArray: "",
+							// 				fillOpacity: 1
+							// 			}) : ""
+
+							// 			console.log(layer)
+							// 		}
+							// 	});
+							// }
+							if (
+								feature.geometry.type === "Polygon" ||
+								feature.geometry.type === "MultiPolygon"
+							) {
+								map.eachLayer((layer) => {
+									if (typeof layer._latlngs !== "undefined") {
+										layer.feature.properties.nom.includes(shopLocation)
+											? layer.setStyle({
+													fillColor: "#FF7475",
+													fillOpacity: 1
+											  })
+											: layer.setStyle({
 													fillColor: "#ffb5b5",
 													color: "#fff",
 													dashArray: "",
 													fillOpacity: 1
-												})
-											
-											layer.feature.properties.nom.includes(shopLocation)
-												? layer.on("click") : layer.off('click')
-												layer.feature.properties.nom.includes(shopLocation) ? layer.on("mouseover", function () {
-													layer.openPopup();
-													highlightFeature
-												})
-												 : layer.on("mouseover", function () {
-													layer.closePopup();
-												});
-												
-												
-											
-										}
-									});
-								}
-							
-								if (feature.properties.shopCode == shopLocation) {
-									// If the property "underConstruction" exists and is true, return false (don't render features under construction)
-									var selectRegion = feature.properties.region;
+											  });
 
-									return feature.properties.underConstruction !== undefined
-										? !feature.properties.underConstruction
-										: true;
-								}
-								return false;
+										layer.feature.properties.nom.includes(shopLocation)
+											? layer.on("click")
+											: layer.off("click");
+										layer.feature.properties.nom.includes(shopLocation)
+											? layer.on("mouseover", function () {
+													layer.openPopup();
+													highlightFeature;
+											  })
+											: layer.on("mouseover", function () {
+													layer.closePopup();
+											  });
+									}
+								});
 							}
-						});
-					}
-					if (
-						matched(shopLocation).includes(datas.shop) || 
-						shopLocation.includes(datas.shop.toLowerCase()) || newShop == shopLocation ||
-						newShop[0] == shopLocation ||
-						shopLocation.includes(datas.shopCode) || shopLocation.includes(datas.shop.toLowerCase()) || shopLocation.includes(datas.shop.toUpperCase())
-					) {
-						console.log(shopLocation)
-						console.log(changeData);
-						newDataShop.push(datas);
-						shopMax = newDataShop;
-						shows += `
+
+							if (feature.properties.shopCode == shopLocation) {
+								// If the property "underConstruction" exists and is true, return false (don't render features under construction)
+								var selectRegion = feature.properties.region;
+
+								return feature.properties.underConstruction !== undefined
+									? !feature.properties.underConstruction
+									: true;
+							}
+							return false;
+						}
+					});
+				}
+				if (
+					matched(shopLocation).includes(datas.shop) ||
+					shopLocation.includes(datas.shop.toLowerCase()) ||
+					newShop == shopLocation ||
+					newShop[0] == shopLocation ||
+					shopLocation.includes(datas.shopCode) ||
+					shopLocation.includes(datas.shop.toLowerCase()) ||
+					shopLocation.includes(datas.shop.toUpperCase())
+				) {
+					console.log(shopLocation);
+					console.log(changeData);
+					newDataShop.push(datas);
+					shopMax = newDataShop;
+					shows += `
 							<div class="map-item">
 							<h2 class="title">Greatwood ${datas.shop} (${newShop})</h2>
 							<p>${datas.adress}</p>
-							<a href="${datas.url}" target="_blank" class="see-shop">Voir le magasin</a>
+							<a href="${datas.url}" target="_blank" class="see-shop">Voir le distributeur</a>
 						  </div>
 						  `;
-						
-						$(".grid-content .info-panel .context").html(
-							`<h4>Magasins Greatwood <br/> <br/>Votre recherche "${shopLocation}" a retourné ${shopMax.length} magasin(s)</h4><b style='margin-top:-15px; display: inline-block'>France</b> (${shopMax.length} Magasins) `
-						);
-						$(".grid-content .info-panel .marker-rich-infos").html(shows);
-					} else {
-						//   newDataShop.push(datas);
-						//   newDataShop.pop();
-						//   shopMax = newDataShop;
-						counts = 0
-						console.log(shopMax)
-						shopMax = newDataShop;
-						console.log(shopLocation);
-						inputdata = shopLocation;
-					}
-				});
-			 
+
+					$(".grid-content .info-panel .context").html(
+						`<h4>Distributeurs Greatwood <br/> <br/>Votre recherche "${shopLocation}" a retourné ${shopMax.length} distributeur(s)</h4><b style='margin-top:-15px; display: inline-block'>France</b> (${shopMax.length} Distributeurs) `
+					);
+					$(".grid-content .info-panel .marker-rich-infos").html(shows);
+				} else {
+					//   newDataShop.push(datas);
+					//   newDataShop.pop();
+					//   shopMax = newDataShop;
+					counts = 0;
+					console.log(shopMax);
+					shopMax = newDataShop;
+					console.log(shopLocation);
+					inputdata = shopLocation;
+				}
+			});
 		});
 
 		$("#shop_location").keypress((e) => {

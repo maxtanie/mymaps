@@ -201,8 +201,6 @@ $(() => {
 				console.log("soory");
 			}
 
-
-
 			return {
 				fillColor: feature.properties.isActived ? "#FF6B6B" : "#ffadad",
 				weight: 3,
@@ -300,7 +298,7 @@ $(() => {
 			});
 
 			$(".grid-content .info-panel .context").html(
-				`<h4>${layers.feature.properties.nom} (${y.length} Magasins)</h4>`
+				`<h4>${layers.feature.properties.nom} (${y.length} Distributeurs)</h4>`
 			);
 
 			nums = dataItems;
@@ -487,7 +485,7 @@ $(() => {
 									$(".grid-content .info-panel .context").html(
 										`<h4>${feature.properties.region} (${
 											feature.geometry.type === "Point"
-												? `${dataItems.length} Magasins`
+												? `${dataItems.length} Distributeurs`
 												: `${dataItems.length} Magasin`
 										})</h4>`
 									);
@@ -532,9 +530,9 @@ $(() => {
 							? new L.LatLng(47.7632836, -0.3299687)
 							: "" || nom === "Bretagne"
 							? new L.LatLng(48.202, -2.9326)
-							: ""  || nom === "Bretagne"
+							: "" || nom === "Bretagne"
 							? new L.LatLng(48.202, -2.9326)
-							: "" 
+							: ""
 					)
 				);
 			});
@@ -587,7 +585,7 @@ $(() => {
 				// </div>
 				// ` ;
 
-				// $(".grid-content .info-panel-title").html(`<h3>Magasins Greatwood</h3>`)
+				// $(".grid-content .info-panel-title").html(`<h3>Distributeurs Greatwood</h3>`)
 				// // $(".grid-content .info-panel .marker-rich-infos").html(output)
 				$("#shop_name").html(outputShops);
 			}
@@ -638,7 +636,7 @@ $(() => {
 				feature.properties.isActived
 					? layer.bindPopup(
 							`<div class="pink-color"><h3>${nom}</h3><p style="margin-top: -15px; font-size: 1.1em;">${
-								shops <= 1 ? `${shops} magasin` : `${shops} magasins`
+								shops <= 1 ? `${shops} magasin` : `${shops} Distributeurs`
 							}</div>`,
 							{
 								closeButton: false,
@@ -718,7 +716,7 @@ $(() => {
 				`;
 			$(".grid-content .info-panel .marker-rich-infos").html(showsData);
 			$(".grid-content .info-panel .context").html(
-				`<h4 class="title-shop">Magasins Greatwood</h4> <div class="shop-values"><b>France</b> <span>(${shopMax.length} Magasins)</span></div>`
+				`<h4 class="title-shop">Distributeurs Greatwood</h4> <div class="shop-values"><b>France</b> <span>(${shopMax.length} Distributeurs)</span></div>`
 			);
 		});
 
@@ -737,7 +735,7 @@ $(() => {
 		// 			`;
 		// 		$(".grid-content .info-panel .marker-rich-infos").html(showsData);
 		// 		$(".grid-content .info-panel .context").html(
-		// 			`<h4>Magasin Greatwood <br/> <p>France (${fullShopMax.length} Magasins)</p></h4>`
+		// 			`<h4>Magasin Greatwood <br/> <p>France (${fullShopMax.length} Distributeurs)</p></h4>`
 		// 		);
 		// 	});
 		// }
@@ -794,7 +792,7 @@ $(() => {
 							`;
 						$(".grid-content .info-panel .marker-rich-infos").html(showsData);
 						$(".grid-content .info-panel .context").html(
-							`<h4>Magasin Greatwood <br/> <p>France (${fullShopMax.length} Magasins)</p></h4>`
+							`<h4>Magasin Greatwood <br/> <p>France (${fullShopMax.length} Distributeurs)</p></h4>`
 						);
 					});
 				}
@@ -915,7 +913,7 @@ $(() => {
 					  `;
 
 					$(".grid-content .info-panel .context").html(
-						`<h4>Magasins Greatwood <br/><p>Votre recherche "${shopLocation}" a retourné ${shops.length} magasin(s)</p></h4><b style='margin-top:-15px; display: inline-block'>France</b> (${shops.length} Magasins) `
+						`<h4>Distributeurs Greatwood <br/><p>Votre recherche "${shopLocation}" a retourné ${shops.length} magasin(s)</p></h4><b style='margin-top:-15px; display: inline-block'>France</b> (${shops.length} Distributeurs) `
 					);
 
 					count >= 1 ? $("#shop_location_btn").addClass("disabled") : null;

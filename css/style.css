@@ -5,8 +5,10 @@
 	src: url("myfont.woff2") format("woff2"), url("myfont.woff") format("woff");
 }
 
-html {
+html,
+body {
 	overflow-x: hidden;
+	overflow: hidden;
 }
 body {
 	position: relative;
@@ -24,6 +26,7 @@ body {
 	transform: scale(0.76);
 	font-size: 15px;
 	z-index: 999;
+	margin-top: -100px;
 }
 
 /* path:hover {
@@ -32,8 +35,8 @@ body {
 
 #box {
 	position: absolute;
-  top: 0;
-  margin-top: -100px;
+	top: 0;
+	margin-top: -100px;
 	height: 115vh;
 	width: 100%;
 	margin: auto;
@@ -172,7 +175,7 @@ body {
 
 .centered-container,
 .c-shop_index_search_filters {
-	position: fixed;
+	position: absolute;
 	max-width: 100%;
 	top: 0px;
 	left: 0;
@@ -181,7 +184,7 @@ body {
 	padding: 30px;
 	background: #34314c;
 	z-index: 999999999999;
-	margin-bottom: 190px;
+	/* margin-bottom: 190px; */
 }
 
 select,
