@@ -26,7 +26,6 @@ body {
 	transform: scale(0.76);
 	font-size: 15px;
 	z-index: 999;
-	margin-top: -100px;
 }
 
 /* path:hover {
@@ -175,7 +174,7 @@ body {
 
 .centered-container,
 .c-shop_index_search_filters {
-	position: absolute;
+	position: fixed;
 	max-width: 100%;
 	top: 0px;
 	left: 0;
@@ -184,7 +183,7 @@ body {
 	padding: 30px;
 	background: #34314c;
 	z-index: 999999999999;
-	/* margin-bottom: 190px; */
+	margin-bottom: 190px;
 }
 
 select,

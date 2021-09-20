@@ -298,7 +298,7 @@ $(() => {
 			});
 
 			$(".grid-content .info-panel .context").html(
-				`<h4>${layers.feature.properties.nom} (${y.length} Distributeurs)</h4>`
+				`<h4>${layers.feature.properties.nom} (${y.length} Distributeur(s))</h4>`
 			);
 
 			nums = dataItems;
@@ -328,7 +328,7 @@ $(() => {
 						<div class="map-item">
 						<a href="${url}" class="title">Greatwood ${shop} (${shopCode})</a>
 						<p class="adress">${adress}</p>
-						<a href="${url}" target="_blank" class="see-shop">Voir le magasin</a>
+						<a href="${url}" target="_blank" class="see-shop">Voir le Distributeur</a>
 					  </div>
 					  `;
 
@@ -458,7 +458,7 @@ $(() => {
 								<div class="map-item">
 								<a href="${url}" class="title">Greatwood ${shop} (${shopCode})</a>
 								<p class="adress">${adress}</p>
-								<a href="${url}" target="_blank" class="see-shop">Voir le magasin</a>
+								<a href="${url}" target="_blank" class="see-shop">Voir le Distributeur</a>
 							  </div>`;
 								$(".grid-content .info-panel .marker-rich-infos").html(output);
 							}
@@ -485,8 +485,8 @@ $(() => {
 									$(".grid-content .info-panel .context").html(
 										`<h4>${feature.properties.region} (${
 											feature.geometry.type === "Point"
-												? `${dataItems.length} Distributeurs`
-												: `${dataItems.length} Magasin`
+												? `${dataItems.length} Distributeur(s)`
+												: `${dataItems.length} Distributeur`
 										})</h4>`
 									);
 								} else {
@@ -581,7 +581,7 @@ $(() => {
 				// <div class="map-item" title="${feature.properties.nom}">
 				//   <h2 class="title">Greatwood ${shop} (${shopCode})</h2>
 				//   <p>${adress}</p>
-				//   <a href="${url}" target="_blank" class="see-shop">Voir le magasin</a>
+				//   <a href="${url}" target="_blank" class="see-shop">Voir le Distributeur</a>
 				// </div>
 				// ` ;
 
@@ -636,7 +636,7 @@ $(() => {
 				feature.properties.isActived
 					? layer.bindPopup(
 							`<div class="pink-color"><h3>${nom}</h3><p style="margin-top: -15px; font-size: 1.1em;">${
-								shops <= 1 ? `${shops} magasin` : `${shops} Distributeurs`
+								shops <= 1 ? `${shops} Distributeur` : `${shops} Distributeurs`
 							}</div>`,
 							{
 								closeButton: false,
@@ -716,7 +716,7 @@ $(() => {
 				`;
 			$(".grid-content .info-panel .marker-rich-infos").html(showsData);
 			$(".grid-content .info-panel .context").html(
-				`<h4 class="title-shop">Distributeurs Greatwood</h4> <div class="shop-values"><b>France</b> <span>(${shopMax.length} Distributeurs)</span></div>`
+				`<h4 class="title-shop">Distributeurs Greatwood</h4> <div class="shop-values"><b>France</b> <span>(${shopMax.length} Distributeur(s))</span></div>`
 			);
 		});
 
@@ -730,12 +730,12 @@ $(() => {
 		// 			  <a href="${el.url}" class="title">Greatwood ${el.shop} (${newShop})</a>
 		// 			  <p>${el.qualification}</p>
 		// 			  <p class="adress">${el.adress}</p>
-		// 			  <a href="${el.url}" target="_blank" class="see-shop">Voir le magasin</a>
+		// 			  <a href="${el.url}" target="_blank" class="see-shop">Voir le Distributeur</a>
 		// 			</div>
 		// 			`;
 		// 		$(".grid-content .info-panel .marker-rich-infos").html(showsData);
 		// 		$(".grid-content .info-panel .context").html(
-		// 			`<h4>Magasin Greatwood <br/> <p>France (${fullShopMax.length} Distributeurs)</p></h4>`
+		// 			`<h4>Distributeur Greatwood <br/> <p>France (${fullShopMax.length} Distributeurs)</p></h4>`
 		// 		);
 		// 	});
 		// }
@@ -787,12 +787,12 @@ $(() => {
 							  <a href="${el.url}" class="title">Greatwood ${el.shop} (${newShop})</a>
 							  <p>${el.qualification}</p>
 							  <p class="adress">${el.adress}</p>
-							  <a href="${el.url}" target="_blank" class="see-shop">Voir le magasin</a>
+							  <a href="${el.url}" target="_blank" class="see-shop">Voir le Distributeur</a>
 							</div>
 							`;
 						$(".grid-content .info-panel .marker-rich-infos").html(showsData);
 						$(".grid-content .info-panel .context").html(
-							`<h4>Magasin Greatwood <br/> <p>France (${fullShopMax.length} Distributeurs)</p></h4>`
+							`<h4>Distributeur Greatwood <br/> <p>France (${fullShopMax.length} Distributeur/s)</p></h4>`
 						);
 					});
 				}
@@ -913,7 +913,7 @@ $(() => {
 					  `;
 
 					$(".grid-content .info-panel .context").html(
-						`<h4>Distributeurs Greatwood <br/><p>Votre recherche "${shopLocation}" a retourné ${shops.length} magasin(s)</p></h4><b style='margin-top:-15px; display: inline-block'>France</b> (${shops.length} Distributeurs) `
+						`<h4>Distributeurs Greatwood <br/><p>Votre recherche "${shopLocation}" a retourné ${shops.length} Distributeur(s)</p></h4><b style='margin-top:-15px; display: inline-block'>France</b> (${shops.length} Distributeur(s)) `
 					);
 
 					count >= 1 ? $("#shop_location_btn").addClass("disabled") : null;
