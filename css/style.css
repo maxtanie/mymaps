@@ -26,6 +26,7 @@ body {
 	transform: scale(0.76);
 	font-size: 15px;
 	z-index: 999;
+	margin-top: -100px;
 }
 
 /* path:hover {

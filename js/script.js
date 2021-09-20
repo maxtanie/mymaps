@@ -328,7 +328,7 @@ $(() => {
 						<div class="map-item">
 						<a href="${url}" class="title">Greatwood ${shop} (${shopCode})</a>
 						<p class="adress">${adress}</p>
-						<a href="${url}" target="_blank" class="see-shop">Voir le Distributeur</a>
+						<a href="${url}" target="_blank" class="see-shop">Voir fiche info</a>
 					  </div>
 					  `;
 
@@ -458,7 +458,7 @@ $(() => {
 								<div class="map-item">
 								<a href="${url}" class="title">Greatwood ${shop} (${shopCode})</a>
 								<p class="adress">${adress}</p>
-								<a href="${url}" target="_blank" class="see-shop">Voir le Distributeur</a>
+								<a href="${url}" target="_blank" class="see-shop">Voir fiche info</a>
 							  </div>`;
 								$(".grid-content .info-panel .marker-rich-infos").html(output);
 							}
@@ -581,7 +581,7 @@ $(() => {
 				// <div class="map-item" title="${feature.properties.nom}">
 				//   <h2 class="title">Greatwood ${shop} (${shopCode})</h2>
 				//   <p>${adress}</p>
-				//   <a href="${url}" target="_blank" class="see-shop">Voir le Distributeur</a>
+				//   <a href="${url}" target="_blank" class="see-shop">Voir fiche info</a>
 				// </div>
 				// ` ;
 
@@ -730,7 +730,7 @@ $(() => {
 		// 			  <a href="${el.url}" class="title">Greatwood ${el.shop} (${newShop})</a>
 		// 			  <p>${el.qualification}</p>
 		// 			  <p class="adress">${el.adress}</p>
-		// 			  <a href="${el.url}" target="_blank" class="see-shop">Voir le Distributeur</a>
+		// 			  <a href="${el.url}" target="_blank" class="see-shop">Voir fiche info</a>
 		// 			</div>
 		// 			`;
 		// 		$(".grid-content .info-panel .marker-rich-infos").html(showsData);
@@ -787,7 +787,7 @@ $(() => {
 							  <a href="${el.url}" class="title">Greatwood ${el.shop} (${newShop})</a>
 							  <p>${el.qualification}</p>
 							  <p class="adress">${el.adress}</p>
-							  <a href="${el.url}" target="_blank" class="see-shop">Voir le Distributeur</a>
+							  <a href="${el.url}" target="_blank" class="see-shop">Voir fiche info</a>
 							</div>
 							`;
 						$(".grid-content .info-panel .marker-rich-infos").html(showsData);
