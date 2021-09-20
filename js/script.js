@@ -1,8 +1,8 @@
 $(() => {
 	const urlMap =
-		"https://gist.githubusercontent.com/maxtanie/71af5cda616deedc66774f0fafcc0b26/raw/5f3d868aeaf5c3734ddd8224f6b0f284d959960b/map.geojson";
+		"https://gist.githubusercontent.com/maxtanie/7ac1caa1369b54939b629fd3bc608a1a/raw/30f25bca84c107206927db62b8233989b08be2f2/map.geojson";
 	const urlDepartments =
-		"https://gist.githubusercontent.com/maxtanie/1a52d5eb8d88f2fe228cd4a77c17c0d4/raw/c5125950c3b74b98e158bad001eb0d76f0bf5733/map.geojson";
+		"https://gist.githubusercontent.com/maxtanie/b58fdf677cc83f8b2ced08d3b2baf9a0/raw/4048f2f34ff26d58acce82e9278350a8a78ce20a/map.geojson";
 	// let output = "";
 	let outputShops = "";
 	// let outputs = "";
@@ -328,7 +328,7 @@ $(() => {
 						<div class="map-item">
 						<a href="${url}" class="title">Greatwood ${shop} (${shopCode})</a>
 						<p class="adress">${adress}</p>
-						<a href="${url}" target="_blank" class="see-shop">Voir fiche info</a>
+						<a href="${url}" target="_blank" class="see-shop">Voir le Distributeur</a>
 					  </div>
 					  `;
 
@@ -453,12 +453,14 @@ $(() => {
 							});
 
 							for (var i = 0; i < vals.length; i++) {
-								const { shop, shopCode, adress, url } = vals[i];
+								const { shop, shopCode, adress, url, qualification, latitude } =
+									vals[i];
 								output += `
 								<div class="map-item">
-								<a href="${url}" class="title">Greatwood ${shop} (${shopCode})</a>
+								<a href="${url}" class="title">${shop} (${shopCode})</a><br/>
+								<i class="qualification">${qualification}</i>
 								<p class="adress">${adress}</p>
-								<a href="${url}" target="_blank" class="see-shop">Voir fiche info</a>
+								<a href="${url}" target="_blank" class="see-shop"> > Voir fiche info </a>
 							  </div>`;
 								$(".grid-content .info-panel .marker-rich-infos").html(output);
 							}
@@ -581,7 +583,7 @@ $(() => {
 				// <div class="map-item" title="${feature.properties.nom}">
 				//   <h2 class="title">Greatwood ${shop} (${shopCode})</h2>
 				//   <p>${adress}</p>
-				//   <a href="${url}" target="_blank" class="see-shop">Voir fiche info</a>
+				//   <a href="${url}" target="_blank" class="see-shop">Voir le Distributeur</a>
 				// </div>
 				// ` ;
 
@@ -730,7 +732,7 @@ $(() => {
 		// 			  <a href="${el.url}" class="title">Greatwood ${el.shop} (${newShop})</a>
 		// 			  <p>${el.qualification}</p>
 		// 			  <p class="adress">${el.adress}</p>
-		// 			  <a href="${el.url}" target="_blank" class="see-shop">Voir fiche info</a>
+		// 			  <a href="${el.url}" target="_blank" class="see-shop">Voir le Distributeur</a>
 		// 			</div>
 		// 			`;
 		// 		$(".grid-content .info-panel .marker-rich-infos").html(showsData);
@@ -787,7 +789,7 @@ $(() => {
 							  <a href="${el.url}" class="title">Greatwood ${el.shop} (${newShop})</a>
 							  <p>${el.qualification}</p>
 							  <p class="adress">${el.adress}</p>
-							  <a href="${el.url}" target="_blank" class="see-shop">Voir fiche info</a>
+							  <a href="${el.url}" target="_blank" class="see-shop"> > Voir fiche info</a>
 							</div>
 							`;
 						$(".grid-content .info-panel .marker-rich-infos").html(showsData);
