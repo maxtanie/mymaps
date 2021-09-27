@@ -269,7 +269,7 @@ $(() => {
 				return data.shop === layers.feature.properties.shop
 					? $(".grid-content .info-panel .marker-rich-infos")
 							.html(` <div class="map-item">
-							<a href="${data.url}" class="title">${data.shop} (${newShop})</a><br/>
+							<a href="${data.url}" class="title" target="_blank">${data.shop} (${newShop})</a><br/>
 							<i class="qualification">${data.qualification}</i>
 							<p class="adress">${data.adress}</p>
 							<a href="${data.url}" target="_blank" class="see-shop"> > Voir fiche info </a>
@@ -329,7 +329,7 @@ $(() => {
 
 					outputsData += `
 						<div class="map-item">
-						<a href="${url}" class="title">${shop}(${newShop})</a><br/>
+						<a href="${url}" class="title" target="_blank">${shop}(${newShop})</a><br/>
 						<i class="qualification">${qualification}</i>
 						<p class="adress">${adress}</p>
 						<a href="${url}" target="_blank" class="see-shop"> > Voir fiche info </a>
@@ -433,7 +433,7 @@ $(() => {
 
 						layer.on("click", function () {
 							box.fitBounds(e.target.getBounds(49));
-						})
+						});
 
 						layer.on("mouseout", function (e) {
 							feature.properties.isActived
@@ -494,14 +494,14 @@ $(() => {
 							for (var i = 0; i < vals.length; i++) {
 								const { shop, shopCode, adress, url, qualification, latitude } =
 									vals[i];
-								
+
 								const shopCodeShort = shopCode;
 								let newShop = shopCodeShort.toString();
 								newShop = newShop.substring(0, 2);
 
 								output += `
 								<div class="map-item">
-								<a href="${url}" class="title">${shop} (${newShop})</a><br/>
+								<a href="${url}" class="title target="_blank"shop} (${newShop})</a><br/>
 								<i class="qualification">${qualification}</i>
 								<p class="adress">${adress}</p>
 								<a href="${url}" target="_blank" class="see-shop"> > Voir fiche info </a>
@@ -765,7 +765,7 @@ $(() => {
 			newShop = newShop.substring(0, 2);
 			showsData += `
 				  <div class="map-item">
-				  <a href="${el.url}" class="title">${el.shop} (${newShop})</a><br/>
+				  <a href="${el.url}" class="title" target="_blank">${el.shop} (${newShop})</a><br/>
 				  <i class="qualification">${el.qualification}</i>
 				  <p class="adress">${el.adress}</p>
 				  <a href="${el.url}" target="_blank" class="see-shop"> > Voir fiche info </a>
@@ -841,7 +841,7 @@ $(() => {
 						newShop = newShop.substring(0, 2);
 						showsData += `
 							  <div class="map-item">
-							  <a href="${el.url}" class="title">Greatwood ${el.shop} (${newShop})</a>
+							  <a href="${el.url}" class="title" target="_blank">${el.shop} (${newShop})</a>
 							  <p>${el.qualification}</p>
 							  <p class="adress">${el.adress}</p>
 							  <a href="${el.url}" target="_blank" class="see-shop"> > Voir fiche info</a>
@@ -967,7 +967,7 @@ $(() => {
 					const getMLengts = shopMax.length;
 					shows += `
 						<div class="map-item">
-						<a href="${datas.url}" class="title">${datas.shop} (${newShop})</a><br/>
+						<a href="${datas.url}" class="title" target="_blank">${datas.shop} (${newShop})</a><br/>
 						<i class="qualification">${datas.qualification}</i>
 						<p class="adress">${datas.adress}</p>
 						<a href="${datas.url}" target="_blank" class="see-shop"> > Voir fiche info </a>
