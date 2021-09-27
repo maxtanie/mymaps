@@ -1,8 +1,8 @@
 $(() => {
 	const urlMap =
-		"https://gist.githubusercontent.com/maxtanie/7ac1caa1369b54939b629fd3bc608a1a/raw/d12fe804ac30fabfb670b878985e08fd11d112f3/map.geojson";
+		"https://gist.githubusercontent.com/maxtanie/7ac1caa1369b54939b629fd3bc608a1a/raw/30f25bca84c107206927db62b8233989b08be2f2/map.geojson";
 	const urlDepartments =
-		"https://gist.githubusercontent.com/maxtanie/a852098a275b38a67b7d1f9d2e3b7ddb/raw/b79cfd7405b6a045d4716330d4419aca0cda59ce/map.geojson";
+		"https://gist.githubusercontent.com/maxtanie/b58fdf677cc83f8b2ced08d3b2baf9a0/raw/4048f2f34ff26d58acce82e9278350a8a78ce20a/map.geojson";
 	// let output = "";
 	let outputShops = "";
 	// let outputs = "";
@@ -323,16 +323,12 @@ $(() => {
 
 				selectData.map((datas) => {
 					const { shop, shopCode, adress, url, qualification } = datas;
-					const shopCodeShort = shopCode;
-					let newShop = shopCodeShort.toString();
-					newShop = newShop.substring(0, 2);
 
 					outputsData += `
 						<div class="map-item">
-						<a href="${url}" class="title">${shop}(${newShop})</a><br/>
-						<i class="qualification">${qualification}</i>
+						<a href="${url}" class="title">Greatwood ${shop} (${shopCode})</a>
 						<p class="adress">${adress}</p>
-						<a href="${url}" target="_blank" class="see-shop"> > Voir fiche info </a>
+						<a href="${url}" target="_blank" class="see-shop">Voir le Distributeur</a>
 					  </div>
 					  `;
 
@@ -418,53 +414,18 @@ $(() => {
 						click: openLayer,
 						zoomToFeature: zoomToFeature
 					});
-
-					if (
-						feature.geometry.type === "Polygon" ||
-						feature.geometry.type === "MultiPolygon"
-					) {
-						layer.on("mouseover", function (e) {
-							feature.properties.isActived
-								? layer.setStyle({
-										fillColor: "#47b8e0"
-								  })
-								: "";
-						});
-
-						layer.on("click", function () {
-							box.fitBounds(e.target.getBounds(49));
-						})
-
-						layer.on("mouseout", function (e) {
-							feature.properties.isActived
-								? layer.setStyle({
-										fillColor: e.target.feature.properties.fill
-								  })
-								: "";
-						});
-					}
 					if (feature.geometry.type === "Point") {
 						deptsData.push(feature.properties);
-
-						layer.bindPopup(`<h3>${shop}</h3>`, {
+						layer.bindPopup(`<h3>Greatwood ${shop}</h3>`, {
 							closeButton: false,
 							offset: L.point(0, -5)
 						});
-						layer.on("mouseover", function (e) {
+						layer.on("mouseover", function () {
 							layer.openPopup();
 						});
 						layer.on("mouseout", function () {
 							layer.closePopup();
 						});
-					} else {
-						feature.properties.isActived
-							? layer.setStyle({
-									fillColor: e.target.feature.properties.fill
-							  })
-							: "";
-						feature.properties.isActived
-							? layer.on("click")
-							: layer.off("click");
 					}
 					//   if (feature.geometry.type === "Polygon" || feature.geometry.type === "MultiPolygon") {
 					//     layer.bindPopup(`<h3>${nom}</h3>`, { closeButton: false, offset: L.point(0, -5) });
@@ -494,14 +455,9 @@ $(() => {
 							for (var i = 0; i < vals.length; i++) {
 								const { shop, shopCode, adress, url, qualification, latitude } =
 									vals[i];
-								
-								const shopCodeShort = shopCode;
-								let newShop = shopCodeShort.toString();
-								newShop = newShop.substring(0, 2);
-
 								output += `
 								<div class="map-item">
-								<a href="${url}" class="title">${shop} (${newShop})</a><br/>
+								<a href="${url}" class="title">${shop} (${shopCode})</a><br/>
 								<i class="qualification">${qualification}</i>
 								<p class="adress">${adress}</p>
 								<a href="${url}" target="_blank" class="see-shop"> > Voir fiche info </a>
@@ -690,28 +646,17 @@ $(() => {
 							}
 					  )
 					: layer.off("click");
-
 				// layer.on({
 				// 	// mouseover: highlightFeature,
 				// 	mouseout: function (e) {
 				// 		layer.setStyle(style(feature));
 				// 	}
 				// });
-				layer.on("mouseover", function (e) {
+				layer.on("mouseover", function () {
 					layer.openPopup();
-					feature.properties.isActived
-						? layer.setStyle({
-								fillColor: "#47b8e0"
-						  })
-						: "";
 				});
-				layer.on("mouseout", function (e) {
+				layer.on("mouseout", function () {
 					layer.closePopup();
-					feature.properties.isActived
-						? layer.setStyle({
-								fillColor: e.target.feature.properties.fill
-						  })
-						: "";
 				});
 			}
 		}
@@ -926,11 +871,6 @@ $(() => {
 													dashArray: "",
 													fillOpacity: 1
 											  });
-
-										!layer.feature.properties.isActived &&
-										!x.includes(layer.feature.properties.nom)
-											? (layer.feature.properties.isActived = false)
-											: (layer.feature.properties.isActived = true);
 									}
 								});
 							}
