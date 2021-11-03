@@ -1,6 +1,6 @@
 $(() => {
 	const urlMap =
-		"https://gist.githubusercontent.com/maxtanie/7ac1caa1369b54939b629fd3bc608a1a/raw/d12fe804ac30fabfb670b878985e08fd11d112f3/map.geojson";
+		"https://raw.githubusercontent.com/maxtanie/superretrogame/main/initial-map.geojson";
 	const urlDepartments =
 		"https://gist.githubusercontent.com/maxtanie/a852098a275b38a67b7d1f9d2e3b7ddb/raw/b79cfd7405b6a045d4716330d4419aca0cda59ce/map.geojson";
 	// let output = "";
