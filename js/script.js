@@ -1,8 +1,9 @@
 $(() => {
 	const urlMap =
 		"https://raw.githubusercontent.com/maxtanie/superretrogame/main/initial-map.geojson";
-	const urlDepartments =
-		"https://gist.githubusercontent.com/maxtanie/a852098a275b38a67b7d1f9d2e3b7ddb/raw/b79cfd7405b6a045d4716330d4419aca0cda59ce/map.geojson";
+// 	const urlDepartments =
+// 		"https://gist.githubusercontent.com/maxtanie/a852098a275b38a67b7d1f9d2e3b7ddb/raw/b79cfd7405b6a045d4716330d4419aca0cda59ce/map.geojson";
+	const urlDepartments = "https://gist.githubusercontent.com/maxtanie/1a52d5eb8d88f2fe228cd4a77c17c0d4/raw/c5125950c3b74b98e158bad001eb0d76f0bf5733/map.geojson";
 	// let output = "";
 	let outputShops = "";
 	// let outputs = "";
